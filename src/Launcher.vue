@@ -72,6 +72,7 @@ import CloseIcon from './assets/close-icon.png'
 import OpenIcon from './assets/logo-no-bg.svg'
 
 export default {
+  inheritAttrs: false,
   components: {
     ChatWindow
   },
