@@ -14,6 +14,7 @@
       <img v-else class="sc-open-icon" :src="icons.open.img" :alt="icons.open.name" />
     </div>
     <ChatWindow
+      v-bind="$attrs"
       :message-list="messageList"
       :on-user-input-submit="onMessageWasSent"
       :participants="participants"
