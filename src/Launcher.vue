@@ -14,7 +14,6 @@
       <img v-else class="sc-open-icon" :src="icons.open.img" :alt="icons.open.name" />
     </div>
     <ChatWindow
-      :style="{ display: 'none' }"
       v-bind="$attrs"
       :message-list="messageList"
       :on-user-input-submit="onMessageWasSent"
@@ -75,7 +74,6 @@ import OpenIcon from './assets/logo-no-bg.svg'
 console.debug(">>>> Launcher.vue", $attrs)
 
 export default {
-  inheritAttrs: false,
   components: {
     ChatWindow
   },
