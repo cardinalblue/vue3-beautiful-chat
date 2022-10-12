@@ -78,6 +78,10 @@ export default {
     ChatWindow
   },
   props: {
+    chatStyle: {
+      type: CSSStyleSheet,
+      default: {},
+    },
     icons: {
       type: Object,
       default: function () {
