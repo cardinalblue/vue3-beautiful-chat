@@ -2,7 +2,7 @@
   <div>
     <div
       v-if="showLauncher"
-      class="sc-launcher TESTTEST"
+      class="sc-launcher"
       :class="{opened: isOpen}"
       :style="{backgroundColor: colors.launcher.bg}"
       @click.prevent="isOpen ? close() : openAndFocus()"
@@ -15,6 +15,7 @@
     </div>
     <ChatWindow
       v-bind="$attrs"
+      class="TESTTEST"
       :style="chatStyle"
       :message-list="messageList"
       :on-user-input-submit="onMessageWasSent"
