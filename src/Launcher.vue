@@ -2,7 +2,7 @@
   <div>
     <div
       v-if="showLauncher"
-      class="sc-launcher"
+      class="sc-launcher TESTTEST"
       :class="{opened: isOpen}"
       :style="{backgroundColor: colors.launcher.bg}"
       @click.prevent="isOpen ? close() : openAndFocus()"
