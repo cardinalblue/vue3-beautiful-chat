@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="Launcher">
     <div
       v-if="showLauncher"
       class="sc-launcher"
