@@ -79,6 +79,10 @@ export default {
     ChatWindow
   },
   props: {
+    foo: {
+      type: String,
+      default: "bar",
+    },
     chatStyle: {
       type: Object,
       default: {},
