@@ -15,6 +15,7 @@
     </div>
     <ChatWindow
       v-bind="$attrs"
+      :style="chatStyle"
       :message-list="messageList"
       :on-user-input-submit="onMessageWasSent"
       :participants="participants"
@@ -79,7 +80,7 @@ export default {
   },
   props: {
     chatStyle: {
-      type: CSSStyleSheet,
+      type: Object,
       default: {},
     },
     icons: {
