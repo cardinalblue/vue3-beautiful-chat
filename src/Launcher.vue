@@ -1,5 +1,5 @@
 <template>
-  <div class="Launcher">
+  <div>
     <div
       v-if="showLauncher"
       class="sc-launcher"
@@ -15,8 +15,6 @@
     </div>
     <ChatWindow
       v-bind="$attrs"
-      class="TESTTEST"
-      :style="chatStyle"
       :message-list="messageList"
       :on-user-input-submit="onMessageWasSent"
       :participants="participants"
@@ -73,21 +71,11 @@ import ChatWindow from './ChatWindow.vue'
 import CloseIcon from './assets/close-icon.png'
 import OpenIcon from './assets/logo-no-bg.svg'
 
-console.debug(">>>> Launcher.vue", $attrs)
-
 export default {
   components: {
     ChatWindow
   },
   props: {
-    foo: {
-      type: String,
-      default: "bar",
-    },
-    chatStyle: {
-      type: Object,
-      default: {},
-    },
     icons: {
       type: Object,
       default: function () {
