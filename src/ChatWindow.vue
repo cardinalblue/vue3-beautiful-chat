@@ -68,7 +68,6 @@ import UserInput from './UserInput.vue'
 import UserList from './UserList.vue'
 
 export default {
-  inheritAttrs: true,
   components: {
     Header,
     MessageList,
