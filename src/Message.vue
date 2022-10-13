@@ -44,13 +44,17 @@
           </slot>
         </template>
       </TextMessage>
+
       <EmojiMessage v-else-if="message.type === 'emoji'" :data="message.data" />
+
       <FileMessage
         v-else-if="message.type === 'file'"
         :data="message.data"
         :message-colors="messageColors"
       />
+
       <TypingMessage v-else-if="message.type === 'typing'" :message-colors="messageColors" />
+
       <SystemMessage
         v-else-if="message.type === 'system'"
         :data="message.data"
@@ -58,6 +62,15 @@
       >
         <slot name="system-message-body" :message="message.data"> </slot>
       </SystemMessage>
+
+      <!-- Catch-all component -->
+      <component 
+        :is="message.component"
+        v-if="message.component"
+        :data="message.data"
+        :message-colors="messageColors"
+      />
+
     </div>
   </div>
 </template>
