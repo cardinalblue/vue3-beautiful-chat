@@ -20,6 +20,15 @@
         ></div>
       </slot>
 
+      <!-- Toolbox (LEFT) -->
+      <slot
+        v-if="message.type !== 'system' && authorName && authorName === 'me'"
+        name="message-toolbox"
+        :message="message"
+        :messageColors="messageColors"
+        :me="me"
+      />
+
       <TextMessage
         v-if="message.type === 'text'"
         :message="message"
@@ -71,6 +80,14 @@
         :message-colors="messageColors"
       />
 
+      <!-- Toolbox (RIGHT) -->
+      <slot
+        v-if="message.type !== 'system' && authorName && authorName !== 'me'"
+        name="message-toolbox"
+        :message="message"
+        :messageColors="messageColors"
+        :me="me"
+      />
     </div>
   </div>
 </template>
