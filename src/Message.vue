@@ -21,6 +21,7 @@
       </slot>
 
       <!-- Toolbox (LEFT) -->
+      M
       <slot
         v-if="message.type !== 'system' && authorName && authorName === 'me'"
         name="message-toolbox"
@@ -81,6 +82,7 @@
       />
 
       <!-- Toolbox (RIGHT) -->
+      M
       <slot
         v-if="message.type !== 'system' && authorName && authorName !== 'me'"
         name="message-toolbox"
