@@ -60,6 +60,10 @@
         <slot name="text-message-toolbox" :message="scopedProps.message" :me="scopedProps.me">
         </slot>
       </template>
+      <template v-slot:message-toolbox="scopedProps">
+        <slot name="message-toolbox" :message="scopedProps.message" :me="scopedProps.me">
+        </slot>
+      </template>
     </ChatWindow>
   </div>
 </template>
