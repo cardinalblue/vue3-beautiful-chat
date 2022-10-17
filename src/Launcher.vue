@@ -61,7 +61,7 @@
         </slot>
       </template>
       <template v-slot:message-toolbox="scopedProps">
-        L
+        Launcher
         <slot name="message-toolbox" :message="scopedProps.message" :me="scopedProps.me">
         </slot>
       </template>

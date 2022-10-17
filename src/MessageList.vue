@@ -37,7 +37,7 @@
         </slot>
       </template>
       <template v-slot:message-toolbox="scopedProps">
-        ML
+        MessageList
         <slot name="message-toolbox" :message="scopedProps.message" :me="scopedProps.me">
         </slot>
       </template>
