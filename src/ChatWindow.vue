@@ -50,6 +50,7 @@
         </slot>
       </template>
     </MessageList>
+    <slot name="chat-input-header" />
     <UserInput
       v-if="!showUserList"
       :show-emoji="showEmoji"
