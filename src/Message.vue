@@ -27,7 +27,7 @@
         <slot name="message-toolbox" 
               :message="message" 
               :messageColors="messageColors" 
-              :me="me" />
+              />
       </div>
 
       <TextMessage
@@ -88,7 +88,6 @@
         <slot name="message-toolbox"
           :message="message"
           :messageColors="messageColors"
-          :me="me"
         />
       </div>
     </div>
