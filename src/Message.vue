@@ -23,6 +23,7 @@
       <!-- Toolbox (LEFT) -->
       <div v-if="message.type !== 'system' && authorName && authorName === 'me'"
         class="sc-message-toolbox--left">
+        LEFT
         <slot name="message-toolbox" 
               :message="message" 
               :messageColors="messageColors" 
