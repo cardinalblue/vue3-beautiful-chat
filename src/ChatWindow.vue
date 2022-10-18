@@ -11,7 +11,9 @@
         <slot name="header"> </slot>
       </template>
     </Header>
+
     <UserList v-if="showUserList" :colors="colors" :participants="participants" />
+
     <MessageList
       v-if="!showUserList"
       :messages="messages"
@@ -50,7 +52,9 @@
         </slot>
       </template>
     </MessageList>
-    <slot name="chat-input-header" />
+
+    <slot name="chat-input-header"></slot>
+
     <UserInput
       v-if="!showUserList"
       :show-emoji="showEmoji"
