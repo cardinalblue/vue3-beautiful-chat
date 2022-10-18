@@ -21,14 +21,15 @@
       </slot>
 
       <!-- Toolbox (LEFT) -->
-      Message LEFT
-      <slot
-        v-if="message.type !== 'system' && authorName && authorName === 'me'"
-        name="message-toolbox"
-        :message="message"
-        :messageColors="messageColors"
-        :me="me"
-      />
+      <div class="sc-message-toolbox--left">
+        <slot
+          v-if="message.type !== 'system' && authorName && authorName === 'me'"
+          name="message-toolbox"
+          :message="message"
+          :messageColors="messageColors"
+          :me="me"
+        />
+      </div>
 
       <TextMessage
         v-if="message.type === 'text'"
@@ -82,14 +83,15 @@
       />
 
       <!-- Toolbox (RIGHT) -->
-      Message RIGHT
-      <slot
-        v-if="message.type !== 'system' && authorName && authorName !== 'me'"
-        name="message-toolbox"
-        :message="message"
-        :messageColors="messageColors"
-        :me="me"
-      />
+      <div class="sc-message-toolbox--right">
+        <slot
+          v-if="message.type !== 'system' && authorName && authorName !== 'me'"
+          name="message-toolbox"
+          :message="message"
+          :messageColors="messageColors"
+          :me="me"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -269,6 +271,12 @@ export default {
   max-width: calc(100% - 120px);
   word-wrap: break-word;
 }
+.sc-message-toolbox--left {
+
+}
+.sc-message-toolbox--right {
+  margin-right: 40px;
+}
 
 .sc-message--text code {
   font-family: 'Courier New', Courier, monospace !important;
@@ -277,7 +285,7 @@ export default {
 .sc-message--content.received .sc-message--text {
   color: #263238;
   background-color: #f4f7f9;
-  margin-right: 40px;
+  // margin-right: 40px;    // Removed because adding it message-toolbox
 }
 
 .tooltip {
