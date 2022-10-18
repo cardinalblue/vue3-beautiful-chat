@@ -53,7 +53,9 @@
       </template>
     </MessageList>
 
-    <slot name="chat-input-header"></slot>
+    <div class="sc-chat-input-header">
+      <slot name="chat-input-header"></slot>
+    </div>
 
     <UserInput
       v-if="!showUserList"
@@ -197,6 +199,9 @@ export default {
   opacity: 0;
   display: none;
   bottom: 90px;
+}
+
+.sc-chat-input-header {
 }
 
 @keyframes fadeIn {
