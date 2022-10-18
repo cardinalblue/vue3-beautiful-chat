@@ -53,6 +53,9 @@
         >
         </slot>
       </template>
+      <template v-slot:chat-input-header>
+        <slot name="chat-input-header"></slot>
+      </template>
       <template v-slot:system-message-body="scopedProps">
         <slot name="system-message-body" :message="scopedProps.message"> </slot>
       </template>
