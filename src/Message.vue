@@ -21,14 +21,12 @@
       </slot>
 
       <!-- Toolbox (LEFT) -->
-      <div class="sc-message-toolbox--left">
-        <slot
-          v-if="message.type !== 'system' && authorName && authorName === 'me'"
-          name="message-toolbox"
-          :message="message"
-          :messageColors="messageColors"
-          :me="me"
-        />
+      <div v-if="message.type !== 'system' && authorName && authorName === 'me'"
+        class="sc-message-toolbox--left">
+        <slot name="message-toolbox" 
+              :message="message" 
+              :messageColors="messageColors" 
+              :me="me" />
       </div>
 
       <TextMessage
@@ -83,10 +81,9 @@
       />
 
       <!-- Toolbox (RIGHT) -->
-      <div class="sc-message-toolbox--right">
-        <slot
-          v-if="message.type !== 'system' && authorName && authorName !== 'me'"
-          name="message-toolbox"
+      <div v-if="message.type !== 'system' && authorName && authorName !== 'me'"
+        class="sc-message-toolbox--right">
+        <slot name="message-toolbox"
           :message="message"
           :messageColors="messageColors"
           :me="me"
