@@ -21,7 +21,7 @@
       </slot>
 
       <!-- Toolbox (LEFT) -->
-      <div v-if="message.type !== 'system' && authorName && authorName === 'me'"
+      <div 
         class="sc-message-toolbox--left"
         :data-author="authorName">
         <slot name="message-toolbox" 
