@@ -82,7 +82,7 @@
       />
 
       <!-- Toolbox (RIGHT) -->
-      <div v-if="message.type !== 'system' && maessage.author !== 'me'"
+      <div v-if="message.type !== 'system' && message.author !== 'me'"
         class="sc-message-toolbox--right"
         :data-author="message.author">
         <slot name="message-toolbox"
