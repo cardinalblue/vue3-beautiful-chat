@@ -21,9 +21,9 @@
       </slot>
 
       <!-- Toolbox (LEFT) -->
-      <div 
+      <div v-if="message.type !== 'system' && message.author && message.author === 'me'"
         class="sc-message-toolbox--left"
-        :data-author="authorName">
+        :data-author="message.author">
         <slot name="message-toolbox" 
               :message="message" 
               :messageColors="messageColors" 
@@ -82,9 +82,9 @@
       />
 
       <!-- Toolbox (RIGHT) -->
-      <div v-if="message.type !== 'system' && authorName && authorName !== 'me'"
+      <div v-if="message.type !== 'system' && maessage.author !== 'me'"
         class="sc-message-toolbox--right"
-        :data-author="authorName">
+        :data-author="message.author">
         <slot name="message-toolbox"
           :message="message"
           :messageColors="messageColors"
