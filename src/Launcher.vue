@@ -14,6 +14,7 @@
       <img v-else class="sc-open-icon" :src="icons.open.img" :alt="icons.open.name" />
     </div>
     <ChatWindow
+      ref="chatWindow"
       v-bind="$attrs"
       :message-list="messageList"
       :on-user-input-submit="onMessageWasSent"
@@ -272,6 +273,12 @@ export default {
       if (this.autoFocus) {
         this.$event.$emit('focusUserInput')
       }
+    },
+    setUserInput(s) {
+      this.$refs.chatWindow.setUserInput(s)
+    },
+    focusUserInput() {
+      this.$refs.chatWindow.focusUserInput()
     }
   }
 }

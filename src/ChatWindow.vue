@@ -59,6 +59,7 @@
 
     <UserInput
       v-if="!showUserList"
+      ref="userInput"
       :show-emoji="showEmoji"
       :show-emoji-in-text="showEmojiInText"
       :on-submit="onUserInputSubmit"
@@ -169,6 +170,12 @@ export default {
     },
     getSuggestions() {
       return this.messages.length > 0 ? this.messages[this.messages.length - 1].suggestions : []
+    },
+    setUserInput(s) {
+      this.$refs.userInput.setUserInput(s)
+    },
+    focusUserInput() {
+      this.$refs.userInput.focusUserInput()
     }
   }
 }

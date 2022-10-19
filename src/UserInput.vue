@@ -220,6 +220,9 @@ export default {
     handleInput(event) {
       this.$emit('onType', event.target.textContent)
     },
+    setUserInput(s) {
+      this.$refs.userInput.textContent = s
+    },
     focusUserInput() {
       this.$nextTick(() => {
         this.$refs.userInput.focus()
