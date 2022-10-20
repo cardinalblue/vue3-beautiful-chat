@@ -27,6 +27,14 @@
         <slot name="message-toolbox" :message="message" />
       </div>
 
+      <MessageInner
+        v-if="message.replying"
+        class="sc-message--replying"
+        :message="message.replying"
+        :show-cofirmation-deletion="false"
+        :confirmation-deletion-message="''"
+      />
+
       <MessageInner v-bind="$props" />
 
       <!-- Toolbox (RIGHT) -->
@@ -212,7 +220,10 @@ export default {
   background-color: #f4f7f9;
   // margin-right: 40px;    // Removed because adding it message-toolbox
 }
-
+.sc-message--replying {
+  opacity: 50%;
+  transform: scale(0.7);
+}
 .tooltip {
   display: block !important;
   z-index: 10000;
