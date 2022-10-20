@@ -16,6 +16,8 @@
       :confirmation-deletion-message="confirmationDeletionMessage"
       @remove="$emit('remove', message)"
     >
+
+      <!------ Pass on slots downwards -->
       <template v-slot:user-avatar="scopedProps">
         <slot name="user-avatar" :user="scopedProps.user" :message="scopedProps.message"> </slot>
       </template>
@@ -40,7 +42,9 @@
         <slot name="message-toolbox" :message="scopedProps.message" :me="scopedProps.me">
         </slot>
       </template>
+
     </Message>
+
     <Message
       v-show="showTypingIndicator !== ''"
       :message="{author: showTypingIndicator, type: 'typing'}"

@@ -24,71 +24,17 @@
       <div v-if="message.type !== 'system' && message.author && message.author === 'me'"
         class="sc-message-toolbox--left"
         :data-author="message.author">
-        <slot name="message-toolbox" 
-              :message="message" 
-              :messageColors="messageColors" 
-              />
+        <slot name="message-toolbox" :message="message" />
       </div>
 
-      <TextMessage
-        v-if="message.type === 'text'"
-        :message="message"
-        :message-colors="messageColors"
-        :message-styling="messageStyling"
-        :show-confirmation-deletion="showConfirmationDeletion"
-        :confirmation-deletion-message="confirmationDeletionMessage"
-        @remove="$emit('remove')"
-      >
-        <template v-slot:default="scopedProps">
-          <slot
-            name="text-message-body"
-            :message="scopedProps.message"
-            :messageText="scopedProps.messageText"
-            :messageColors="scopedProps.messageColors"
-            :me="scopedProps.me"
-          >
-          </slot>
-        </template>
-        <template v-slot:text-message-toolbox="scopedProps">
-          <slot name="text-message-toolbox" :message="scopedProps.message" :me="scopedProps.me">
-          </slot>
-        </template>
-      </TextMessage>
-
-      <EmojiMessage v-else-if="message.type === 'emoji'" :data="message.data" />
-
-      <FileMessage
-        v-else-if="message.type === 'file'"
-        :data="message.data"
-        :message-colors="messageColors"
-      />
-
-      <TypingMessage v-else-if="message.type === 'typing'" :message-colors="messageColors" />
-
-      <SystemMessage
-        v-else-if="message.type === 'system'"
-        :data="message.data"
-        :message-colors="messageColors"
-      >
-        <slot name="system-message-body" :message="message.data"> </slot>
-      </SystemMessage>
-
-      <!-- Catch-all component -->
-      <component 
-        :is="message.component"
-        v-if="message.component"
-        :data="message.data"
-        :message-colors="messageColors"
-      />
+      <MessageInner v-bind="$props" />
 
       <!-- Toolbox (RIGHT) -->
       <div v-if="message.type !== 'system' && message.author !== 'me'"
         class="sc-message-toolbox--right"
-        :data-author="message.author">
-        <slot name="message-toolbox"
-          :message="message"
-          :messageColors="messageColors"
-        />
+        :data-author="message.author"
+      >
+        <slot name="message-toolbox" :message="message" />
       </div>
     </div>
   </div>
@@ -101,14 +47,11 @@ import EmojiMessage from './messages/EmojiMessage.vue'
 import TypingMessage from './messages/TypingMessage.vue'
 import SystemMessage from './messages/SystemMessage.vue'
 import chatIcon from './assets/chat-icon.svg'
+import MessageInner from './MessageInner.vue'
 
 export default {
   components: {
-    TextMessage,
-    FileMessage,
-    EmojiMessage,
-    TypingMessage,
-    SystemMessage
+    MessageInner
   },
   props: {
     message: {
@@ -142,21 +85,6 @@ export default {
     },
     chatImageUrl() {
       return (this.user && this.user.imageUrl) || chatIcon
-    },
-    messageColors() {
-      return this.message.author === 'me' ? this.sentColorsStyle : this.receivedColorsStyle
-    },
-    receivedColorsStyle() {
-      return {
-        color: this.colors.receivedMessage.text,
-        backgroundColor: this.colors.receivedMessage.bg
-      }
-    },
-    sentColorsStyle() {
-      return {
-        color: this.colors.sentMessage.text,
-        backgroundColor: this.colors.sentMessage.bg
-      }
     }
   }
 }
@@ -270,7 +198,6 @@ export default {
   word-wrap: break-word;
 }
 .sc-message-toolbox--left {
-
 }
 .sc-message-toolbox--right {
   margin-right: 40px;
