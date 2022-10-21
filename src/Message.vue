@@ -233,7 +233,7 @@ export default {
 }
 .sc-message--replying {
   opacity: 50%;
-  transform: transform(0, 10px);
+  transform: translate(0, 10px);
 }
 .tooltip {
   display: block !important;
