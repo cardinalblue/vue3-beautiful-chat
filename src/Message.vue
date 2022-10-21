@@ -1,6 +1,14 @@
 <template>
-  <div :id="message.id" class="sc-message">
-    
+  <div
+    :id="message.id"
+    class="sc-message"
+    :class="{
+      sent: message.author === 'me',
+      received: message.author !== 'me' && message.type !== 'system',
+      system: message.type === 'system'
+    }"
+  >
+
     <div
       class="sc-message--replying"
       :class="{
@@ -128,6 +136,9 @@ export default {
     font-size: xx-small;
     text-align: center;
   }
+}
+.sc-message.received {
+  align-items: flex-start;
 }
 
 .sc-message--content {
