@@ -1,5 +1,19 @@
 <template>
   <div :id="message.id" class="sc-message">
+
+    <div class="sc-message--replying">
+      <!-- Replying to Message contents -->
+      <MessageInner
+        v-if="message.replying"
+        class="sc-message--replying"
+        :message="message.replying"
+        :colors="colors"
+        :messageStying="messageStyling"
+        :showConfirmationDeletion="false"
+        :confirmationDeletionMessage="''"
+      />
+    </div>
+
     <div
       class="sc-message--content"
       :class="{
@@ -26,17 +40,6 @@
         :data-author="message.author">
         <slot name="message-toolbox" :message="message" />
       </div>
-
-      <!-- Replying to Message contents -->
-      <MessageInner
-        v-if="message.replying"
-        class="sc-message--replying"
-        :message="message.replying"
-        :colors="colors"
-        :messageStying="messageStyling"
-        :showConfirmationDeletion="false"
-        :confirmationDeletionMessage="''"
-      />
 
       <!-- Message contents -->
       <MessageInner v-bind="$props" />
