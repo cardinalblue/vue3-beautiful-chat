@@ -110,7 +110,11 @@ export default {
   width: 300px;
   margin: auto;
   padding-bottom: 10px;
+  
   display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
   .sc-message--edited {
     opacity: 0.7;
     word-wrap: normal;
@@ -229,7 +233,7 @@ export default {
 }
 .sc-message--replying {
   opacity: 50%;
-  transform: scale(0.7);
+  transform: transform(0, 10px);
 }
 .tooltip {
   display: block !important;
