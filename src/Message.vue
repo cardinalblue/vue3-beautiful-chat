@@ -1,13 +1,14 @@
 <template>
   <div :id="message.id" class="sc-message">
-
-    <div 
-      class="sc-message--replying">
+    
+    <div
+      class="sc-message--replying"
       :class="{
         sent: message.author === 'me',
         received: message.author !== 'me' && message.type !== 'system',
         system: message.type === 'system'
       }"
+    >
       <!-- Replying to Message contents -->
       <MessageInner
         v-if="message.replying"
