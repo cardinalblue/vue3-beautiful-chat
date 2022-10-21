@@ -78,10 +78,6 @@ export default {
       type: Boolean,
       required: true
     },
-    user: {
-      type: Object,
-      required: true
-    },
     showConfirmationDeletion: {
       type: Boolean,
       required: true

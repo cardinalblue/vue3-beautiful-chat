@@ -27,14 +27,18 @@
         <slot name="message-toolbox" :message="message" />
       </div>
 
+      <!-- Replying to Message contents -->
       <MessageInner
         v-if="message.replying"
         class="sc-message--replying"
         :message="message.replying"
-        :show-cofirmation-deletion="false"
-        :confirmation-deletion-message="''"
+        :colors="colors"
+        :messageStying="messageStyling"
+        :showConfirmationDeletion="false"
+        :confirmationDeletionMessage="''"
       />
 
+      <!-- Message contents -->
       <MessageInner v-bind="$props" />
 
       <!-- Toolbox (RIGHT) -->
