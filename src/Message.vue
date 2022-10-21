@@ -1,7 +1,13 @@
 <template>
   <div :id="message.id" class="sc-message">
 
-    <div class="sc-message--replying">
+    <div 
+      class="sc-message--replying">
+      :class="{
+        sent: message.author === 'me',
+        received: message.author !== 'me' && message.type !== 'system',
+        system: message.type === 'system'
+      }"
       <!-- Replying to Message contents -->
       <MessageInner
         v-if="message.replying"
@@ -231,10 +237,18 @@ export default {
   background-color: #f4f7f9;
   // margin-right: 40px;    // Removed because adding it message-toolbox
 }
+
 .sc-message--replying {
   opacity: 50%;
   transform: translate(0, 10px);
 }
+.sc-message--replying.sent {
+  justify-content: flex-end;
+}  
+.sc-message--replying.received {
+  justify-content: flex-start;
+}  
+
 .tooltip {
   display: block !important;
   z-index: 10000;
