@@ -49,7 +49,7 @@
           <FileIcons :on-change="_handleFileSubmit" :color="colors.userInput.text" />
         </div>
         <div v-if="showImage && !isEditing" class="sc-user-input--button">
-          <FileIcons :on-change="_handleFileSubmit" :color="colors.userInput.text" />
+          <ImageIcon :on-change="_handleFileSubmit" :color="colors.userInput.text" />
         </div>
         <div v-if="isEditing" class="sc-user-input--button">
           <UserInputButton
@@ -94,6 +94,7 @@ import store from './store/'
 import IconCross from './components/icons/IconCross.vue'
 import IconOk from './components/icons/IconOk.vue'
 import IconSend from './components/icons/IconSend.vue'
+import ImageIcon from './icons/ImageIcon.vue'
 
 export default {
   components: {
@@ -103,8 +104,9 @@ export default {
     Suggestions,
     IconCross,
     IconOk,
-    IconSend
-  },
+    IconSend,
+    ImageIcon
+},
   props: {
     icons: {
       type: Object,
