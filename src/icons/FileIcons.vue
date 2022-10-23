@@ -9,7 +9,7 @@
         y="0px"
         width="24px"
         height="24px"
-        viewBox="0 0 37.393 37.393"
+        viewBox="0 0 37.393 26"
         enableBackground="new 0 0 37.393 37.393"
       >
         <path
