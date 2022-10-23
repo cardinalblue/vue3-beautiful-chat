@@ -24,6 +24,7 @@
       :show-emoji="showEmoji"
       :show-emoji-in-text="showEmojiInText"
       :show-file="showFile"
+      :show-image="showImage"
       :show-confirmation-deletion="showConfirmationDeletion"
       :confirmation-deletion-message="confirmationDeletionMessage"
       :show-header="showHeader"
@@ -140,6 +141,10 @@ export default {
       required: true
     },
     showFile: {
+      type: Boolean,
+      default: false
+    },
+    showImage: {
       type: Boolean,
       default: false
     },

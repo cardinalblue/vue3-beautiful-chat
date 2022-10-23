@@ -48,6 +48,9 @@
         <div v-if="showFile && !isEditing" class="sc-user-input--button">
           <FileIcons :on-change="_handleFileSubmit" :color="colors.userInput.text" />
         </div>
+        <div v-if="showImage && !isEditing" class="sc-user-input--button">
+          <FileIcons :on-change="_handleFileSubmit" :color="colors.userInput.text" />
+        </div>
         <div v-if="isEditing" class="sc-user-input--button">
           <UserInputButton
             :color="colors.userInput.text"
@@ -131,6 +134,10 @@ export default {
       default: () => []
     },
     showFile: {
+      type: Boolean,
+      default: () => false
+    },
+    showImage: {
       type: Boolean,
       default: () => false
     },

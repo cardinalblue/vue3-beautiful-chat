@@ -65,6 +65,7 @@
       :on-submit="onUserInputSubmit"
       :suggestions="getSuggestions()"
       :show-file="showFile"
+      :show-image="showImage"
       :placeholder="placeholder"
       :colors="colors"
       @onType="$emit('onType', $event)"
@@ -96,6 +97,10 @@ export default {
       default: false
     },
     showFile: {
+      type: Boolean,
+      default: false
+    },
+    showImage: {
       type: Boolean,
       default: false
     },
