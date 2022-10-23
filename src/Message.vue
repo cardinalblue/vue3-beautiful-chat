@@ -23,9 +23,9 @@
         class="sc-message--replying"
         :message="message.replying"
         :colors="colors"
-        :messageStying="messageStyling"
-        :showConfirmationDeletion="false"
-        :confirmationDeletionMessage="''"
+        :message-styling="messageStyling"
+        :show-confirmation-deletion="false"
+        :confirmation-deletion-message="''"
       />
     </div>
 
