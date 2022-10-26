@@ -1,4 +1,5 @@
 <template>
+
   <TextMessage
     v-if="message.type === 'text'"
     :message="message"
@@ -23,7 +24,10 @@
     </template>
   </TextMessage>
 
-  <EmojiMessage v-else-if="message.type === 'emoji'" :data="message.data" />
+  <EmojiMessage
+    v-else-if="message.type === 'emoji'" 
+    :data="message.data" 
+  />
 
   <FileMessage
     v-else-if="message.type === 'file'"
